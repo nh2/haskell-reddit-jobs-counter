@@ -5,24 +5,22 @@
 {-# LANGUAGE OverloadedLabels #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 
 module Main where
 
 
 import           Data.Aeson (ToJSON, FromJSON)
 import qualified Data.Aeson as Aeson
-import qualified Data.Aeson.KeyMap as Aeson.KeyMap
 import           Control.Concurrent (threadDelay)
 import           Control.Monad (when)
 import           Control.Monad.IO.Class (MonadIO, liftIO)
-import           Data.Foldable (for_, toList)
+import           Data.Foldable (for_)
 import           Data.Maybe (isJust)
 import           Data.Text (Text)
 import qualified Data.Text as T
-import qualified Data.Text.IO as T
 import           Data.Time
 import           GHC.Generics (Generic)
-import qualified Network.Reddit as R
 import           Network.Reddit as R
 import           Network.Reddit.Types.Internal as R
 import           Network.Reddit.Types.Award as R
