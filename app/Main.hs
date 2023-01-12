@@ -117,9 +117,8 @@ main = do
                   liftIO $ putStrLn $ "Total submissions for search term " ++ T.unpack searchTerm ++ ": " ++ show newTotal
 
         storageLoop (emptyPaginator{ limit = 100 }) 0
+
   runReddit client $ do
-
-
     let searchTerms =
           [ "flair:job"
           , "title:engineer"
