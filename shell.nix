@@ -4,12 +4,13 @@
 #     nix-shell shell.nix --run $SHELL
 #     cabal build
 #
-# If you have a nixpkgs checkout you want to use, use:
-#     NIX_PATH=nixpkgs=/etc/nixos/nixpkgs nix-shell shell.nix --run $SHELL
-# If you want to use the known-good nixpkgs version pinned below, use:
-#     nix-shell shell.nix --run $SHELL --arg usePinnedNixpkgs true
+# It uses a pinned nixpkgs by default.
+# If you want to use your own nixpkgs (e.g. from a `nix-channel` instead), use:
+#     nix-shell shell.nix --run $SHELL --arg usePinnedNixpkgs false
+# If you want to pass the nixpkgs to use:
+#     NIX_PATH=nixpkgs=/etc/nixos/nixpkgs nix-shell shell.nix --run $SHELL --arg usePinnedNixpkgs false
 {
-  usePinnedNixpkgs ? false,
+  usePinnedNixpkgs ? true,
   nixpkgs ? builtins.fetchTarball {
     url    = "https://github.com/NixOS/nixpkgs/archive/dfef2e61107dc19c211ead99a5a61374ad8317f4.tar.gz";
     sha256 = "09zps6ih9f5yn4mplfzy90sjxqprjym4cw58fcww8dacddq7gdbg";
